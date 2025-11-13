@@ -15,8 +15,15 @@
         <module>cdt-protocol-parser</module>
         <module>cdt-java-protocol-builder</module>
         <module>cdt-java-client</module>
-        <module>cdt-examples</module>
     </modules>
+    <profiles>
+      <profile>
+        <id>examples</id>
+        <modules>
+          <module>cdt-examples</module>
+        </modules>
+      </profile>
+    </profiles>
 
     <licenses>
         <license>

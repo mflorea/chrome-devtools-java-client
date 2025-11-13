@@ -52,16 +52,16 @@ upgrade-protocol: copy-protocol-files-to-test-resources build-all-modules clean-
 		--js-protocol=$(JS_PROTOCOL_JSON_FILE) \
 		--browser-protocol=$(BROWSER_PROTOCOL_JSON_FILE)
 	# Apply the formatting on the codebase
-	$(MVN) com.coveo:fmt-maven-plugin:format
+	$(MVN) com.coveo:fmt-maven-plugin:format -Pexamples
 
 update-protocol: upgrade-protocol
 	# Updated protocol on cdt-java-client
-	$(MVN) verify
+	$(MVN) verify -Pexamples
 
 update-copyright-license-header:
-	$(MVN) clean license:update-file-header
+	$(MVN) clean license:update-file-header -Pexamples
 	# Apply the formatting on the codebase
-	$(MVN) com.coveo:fmt-maven-plugin:format
+	$(MVN) com.coveo:fmt-maven-plugin:format -Pexamples
 
 sonar-analysis:
 	# Running sonar analysis
@@ -70,7 +70,7 @@ sonar-analysis:
 
 verify:
 	# Running unit tests
-	$(MVN) verify
+	$(MVN) verify -Pexamples
 
 download-latest-protocol:
 	# Downloads the latest protocol json files
