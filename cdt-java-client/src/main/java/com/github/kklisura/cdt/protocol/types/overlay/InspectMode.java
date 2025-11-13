@@ -4,7 +4,7 @@ package com.github.kklisura.cdt.protocol.types.overlay;
  * #%L
  * cdt-java-client
  * %%
- * Copyright (C) 2018 - 2021 Kenan Klisura
+ * Copyright (C) 2018 - 2025 Kenan Klisura
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,6 @@ public enum InspectMode {
   SEARCH_FOR_UA_SHADOW_DOM,
   @JsonProperty("captureAreaScreenshot")
   CAPTURE_AREA_SCREENSHOT,
-  @JsonProperty("showDistances")
-  SHOW_DISTANCES,
   @JsonProperty("none")
   NONE
 }

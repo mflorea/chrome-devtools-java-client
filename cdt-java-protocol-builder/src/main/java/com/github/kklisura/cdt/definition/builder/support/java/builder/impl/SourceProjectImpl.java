@@ -4,7 +4,7 @@ package com.github.kklisura.cdt.definition.builder.support.java.builder.impl;
  * #%L
  * cdt-java-protocol-builder
  * %%
- * Copyright (C) 2018 - 2021 Kenan Klisura
+ * Copyright (C) 2018 - 2025 Kenan Klisura
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import com.github.javaparser.printer.PrettyPrinter;
 import com.github.javaparser.printer.PrettyPrinterConfiguration;
 import com.github.javaparser.utils.SourceRoot;
 import com.github.kklisura.cdt.definition.builder.support.java.builder.SourceProject;
+import com.google.googlejavaformat.FormattingError;
 import com.google.googlejavaformat.java.Formatter;
 import com.google.googlejavaformat.java.FormatterException;
 import com.google.googlejavaformat.java.JavaFormatterOptions;
@@ -99,7 +100,9 @@ public class SourceProjectImpl implements SourceProject {
       try {
         return formatter.formatSourceAndFixImports(source);
       } catch (FormatterException e) {
-        throw new RuntimeException("Failed formatting source.", e);
+        throw new RuntimeException("Failed formatting source: " + source, e);
+      } catch (FormattingError e) {
+        throw new RuntimeException("[FormattingError] Failed formatting source: " + source, e);
       }
     };
   }

@@ -4,7 +4,7 @@ package com.github.kklisura.cdt.protocol.events.browser;
  * #%L
  * cdt-java-client
  * %%
- * Copyright (C) 2018 - 2021 Kenan Klisura
+ * Copyright (C) 2018 - 2025 Kenan Klisura
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ package com.github.kklisura.cdt.protocol.events.browser;
  */
 
 import com.github.kklisura.cdt.protocol.support.annotations.Experimental;
+import com.github.kklisura.cdt.protocol.support.annotations.Optional;
 
 /** Fired when download makes progress. Last call has |done| == true. */
 @Experimental
@@ -33,6 +34,8 @@ public class DownloadProgress {
   private Double receivedBytes;
 
   private DownloadProgressState state;
+
+  @Experimental @Optional private String filePath;
 
   /** Global unique identifier of the download. */
   public String getGuid() {
@@ -72,5 +75,21 @@ public class DownloadProgress {
   /** Download status. */
   public void setState(DownloadProgressState state) {
     this.state = state;
+  }
+
+  /**
+   * If download is "completed", provides the path of the downloaded file. Depending on the
+   * platform, it is not guaranteed to be set, nor the file is guaranteed to exist.
+   */
+  public String getFilePath() {
+    return filePath;
+  }
+
+  /**
+   * If download is "completed", provides the path of the downloaded file. Depending on the
+   * platform, it is not guaranteed to be set, nor the file is guaranteed to exist.
+   */
+  public void setFilePath(String filePath) {
+    this.filePath = filePath;
   }
 }

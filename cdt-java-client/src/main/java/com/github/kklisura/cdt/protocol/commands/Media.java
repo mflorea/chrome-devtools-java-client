@@ -4,7 +4,7 @@ package com.github.kklisura.cdt.protocol.commands;
  * #%L
  * cdt-java-client
  * %%
- * Copyright (C) 2018 - 2021 Kenan Klisura
+ * Copyright (C) 2018 - 2025 Kenan Klisura
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,17 +20,17 @@ package com.github.kklisura.cdt.protocol.commands;
  * #L%
  */
 
+import com.github.kklisura.cdt.protocol.events.media.PlayerCreated;
 import com.github.kklisura.cdt.protocol.events.media.PlayerErrorsRaised;
 import com.github.kklisura.cdt.protocol.events.media.PlayerEventsAdded;
 import com.github.kklisura.cdt.protocol.events.media.PlayerMessagesLogged;
 import com.github.kklisura.cdt.protocol.events.media.PlayerPropertiesChanged;
-import com.github.kklisura.cdt.protocol.events.media.PlayersCreated;
 import com.github.kklisura.cdt.protocol.support.annotations.EventName;
 import com.github.kklisura.cdt.protocol.support.annotations.Experimental;
 import com.github.kklisura.cdt.protocol.support.types.EventHandler;
 import com.github.kklisura.cdt.protocol.support.types.EventListener;
 
-/** This domain allows detailed inspection of media elements */
+/** This domain allows detailed inspection of media elements. */
 @Experimental
 public interface Media {
 
@@ -64,9 +64,8 @@ public interface Media {
 
   /**
    * Called whenever a player is created, or when a new agent joins and receives a list of active
-   * players. If an agent is restored, it will receive the full list of player ids and all events
-   * again.
+   * players. If an agent is restored, it will receive one event for each active player.
    */
-  @EventName("playersCreated")
-  EventListener onPlayersCreated(EventHandler<PlayersCreated> eventListener);
+  @EventName("playerCreated")
+  EventListener onPlayerCreated(EventHandler<PlayerCreated> eventListener);
 }

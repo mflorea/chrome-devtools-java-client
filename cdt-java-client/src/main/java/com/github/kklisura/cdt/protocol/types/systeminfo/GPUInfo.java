@@ -4,7 +4,7 @@ package com.github.kklisura.cdt.protocol.types.systeminfo;
  * #%L
  * cdt-java-client
  * %%
- * Copyright (C) 2018 - 2021 Kenan Klisura
+ * Copyright (C) 2018 - 2025 Kenan Klisura
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,8 +38,6 @@ public class GPUInfo {
   private List<VideoDecodeAcceleratorCapability> videoDecoding;
 
   private List<VideoEncodeAcceleratorCapability> videoEncoding;
-
-  private List<ImageDecodeAcceleratorCapability> imageDecoding;
 
   /** The graphics devices on the system. Element 0 is the primary GPU. */
   public List<GPUDevice> getDevices() {
@@ -99,15 +97,5 @@ public class GPUInfo {
   /** Supported accelerated video encoding capabilities. */
   public void setVideoEncoding(List<VideoEncodeAcceleratorCapability> videoEncoding) {
     this.videoEncoding = videoEncoding;
-  }
-
-  /** Supported accelerated image decoding capabilities. */
-  public List<ImageDecodeAcceleratorCapability> getImageDecoding() {
-    return imageDecoding;
-  }
-
-  /** Supported accelerated image decoding capabilities. */
-  public void setImageDecoding(List<ImageDecodeAcceleratorCapability> imageDecoding) {
-    this.imageDecoding = imageDecoding;
   }
 }

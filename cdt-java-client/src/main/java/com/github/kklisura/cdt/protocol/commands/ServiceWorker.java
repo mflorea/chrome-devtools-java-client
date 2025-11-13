@@ -4,7 +4,7 @@ package com.github.kklisura.cdt.protocol.commands;
  * #%L
  * cdt-java-client
  * %%
- * Copyright (C) 2018 - 2021 Kenan Klisura
+ * Copyright (C) 2018 - 2025 Kenan Klisura
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,9 +67,6 @@ public interface ServiceWorker {
       @ParamName("tag") String tag);
 
   void enable();
-
-  /** @param versionId */
-  void inspectWorker(@ParamName("versionId") String versionId);
 
   /** @param forceUpdateOnPageLoad */
   void setForceUpdateOnPageLoad(@ParamName("forceUpdateOnPageLoad") Boolean forceUpdateOnPageLoad);

@@ -4,7 +4,7 @@ package com.github.kklisura.cdt.examples;
  * #%L
  * cdt-examples
  * %%
- * Copyright (C) 2018 - 2021 Kenan Klisura
+ * Copyright (C) 2018 - 2025 Kenan Klisura
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,7 +52,7 @@ public class BlockUrlGivenPatternExample {
     final Network network = devToolsService.getNetwork();
 
     // Block some urls.
-    network.setBlockedURLs(Arrays.asList("**/*.css", "**/*.png", "**/*.svg"));
+    network.setBlockedURLs(Arrays.asList(), Arrays.asList("**/*.css", "**/*.png", "**/*.svg"));
 
     // Enable network events
     network.enable();
